@@ -1,0 +1,32 @@
+{% load mathfilters %}
+
+<h1>Students List</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>Physics Marks</th>
+            <th>Chemistry Marks</th>
+            <th>Maths Marks</th>
+            <th>Computer Science Marks</th>
+            <th>Total Percentage</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.dob }}</td>
+            <td>{{ student.physics_marks }}</td>
+            <td>{{ student.chemistry_marks }}</td>
+            <td>{{ student.maths_marks }}</td>
+            <td>{{ student.computer_science_marks }}</td>
+            <td>{{ ((student.physics_marks + student.chemistry_marks + student.maths_marks + student.computer_science_marks) | floatdiv:4) | floatformat:"2%" }}
+
+
+</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
